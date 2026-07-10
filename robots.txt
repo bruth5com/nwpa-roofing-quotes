@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nwpa-roofing-quotes.netlify.app/sitemap.xml
