@@ -2,3 +2,9 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml"
+
+[[redirects]]
+  from = "/testimonials-roofing.html"
+  to = "/"
+  status = 301
+  force = true
