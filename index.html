@@ -201,12 +201,12 @@
     <div class="form-card">
       <form action="https://formspree.io/f/mnjrlnyq" method="POST">
         <div class="form-grid">
-          <div class="form-row"><label for="first_name">First Name</label><input type="text" id="first_name" name="first_name" placeholder="John" required></div>
-          <div class="form-row"><label for="last_name">Last Name</label><input type="text" id="last_name" name="last_name" placeholder="Smith" required></div>
+          <div class="form-row"><label for="first_name">First Name</label><input type="text" id="first_name" name="first_name" autocomplete="given-name" placeholder="John" required></div>
+          <div class="form-row"><label for="last_name">Last Name</label><input type="text" id="last_name" name="last_name" autocomplete="family-name" placeholder="Smith" required></div>
         </div>
         <div class="form-grid">
-          <div class="form-row"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(724) 555-0100" required></div>
-          <div class="form-row"><label for="zip_code">ZIP Code</label><input type="text" id="zip_code" name="zip_code" placeholder="16150" required></div>
+          <div class="form-row"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(724) 555-0100" required></div>
+          <div class="form-row"><label for="zip_code">ZIP Code</label><input type="text" id="zip_code" name="zip_code" autocomplete="postal-code" inputmode="numeric" placeholder="16150" required></div>
         </div>
         <div class="form-row">
           <label for="project_type">Type of Project</label>
