@@ -169,6 +169,10 @@
     .trust-bar-inner { gap: 16px; }
     .photo-grid { grid-template-columns: 1fr; }
   }
+/* Accessibility: visible keyboard focus and minimum interactive target size. */
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid #0b63ce; outline-offset: 3px; box-shadow: 0 0 0 2px #fff; }
+:where(button, input:not([type="checkbox"]):not([type="radio"]), select) { min-height: 44px; }
+@media (pointer: coarse) { nav a, a[class*="btn"] { display: inline-flex; align-items: center; min-height: 44px; } }
 </style>
 </head>
 <body>
@@ -262,8 +266,8 @@
       <p class="photo-title">Local Crews. Real Work.</p>
       <p class="photo-sub">NW Pennsylvania roofing contractors — professional, local, and ready to respond.</p>
       <div class="photo-grid">
-        <img src="og-image.jpg" alt="NW Pennsylvania roofing crew completing a roof replacement" loading="lazy">
-        <img src="og-image__2_.jpg" alt="Local roofing contractors working on a home in NW Pennsylvania" loading="lazy">
+        <img src="og-image.jpg" alt="NW Pennsylvania roofing crew completing a roof replacement" width="1024" height="1024" loading="lazy" decoding="async">
+        <img src="og-image__2_.jpg" alt="Local roofing contractors working on a home in NW Pennsylvania" width="1024" height="1024" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
