@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TC9BEET4H8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TC9BEET4H8');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NW Pennsylvania Roofing Contractors | Free Estimates</title>
@@ -11,6 +13,10 @@
 <meta property="og:url" content="https://nwpa-roofing-quotes.netlify.app/" />
 <meta property="og:description" content="Local roofing contractors in NW Pennsylvania. Roof replacement, leak repair & metal roofing. Free estimates. Call (814) 209-8304." />
 <meta property="og:image" content="https://nwpa-roofing-quotes.netlify.app/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="NW Pennsylvania Roofing Contractors | Free Estimates" />
+<meta name="twitter:description" content="Local roofing contractors in NW Pennsylvania. Free estimates and follow-up within 24 hours." />
+<meta name="twitter:image" content="https://nwpa-roofing-quotes.netlify.app/og-image.jpg" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -176,6 +182,15 @@
 :where(button, input:not([type="checkbox"]):not([type="radio"]), select) { min-height: 44px; }
 @media (pointer: coarse) { nav a, a[class*="btn"] { display: inline-flex; align-items: center; min-height: 44px; } }
 </style>
+<style>
+  .mobile-action { display:none; }
+  @media (max-width:700px) {
+    body { padding-bottom:72px; }
+    .mobile-action { position:fixed; z-index:1000; left:0; right:0; bottom:0; display:grid; grid-template-columns:1fr 1fr; background:#10233f; box-shadow:0 -4px 18px rgba(0,0,0,.25); }
+    .mobile-action a { min-height:60px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; text-decoration:none; }
+    .mobile-action a:last-child { background:#d79a22; color:#10233f; }
+  }
+</style>
 </head>
 <body>
 
@@ -200,12 +215,13 @@
 
 <main>
 
-  <section class="form-section" aria-labelledby="form-heading">
+  <section class="form-section" id="get-quote" aria-labelledby="form-heading">
     <span class="form-label">Venango · Crawford · Warren · Forest · Clarion · Butler · Mercer</span>
     <h2 class="form-title" id="form-heading">Request Your Free Roofing Estimate</h2>
     <p class="form-sub">Serving Venango, Crawford, Warren, Forest, Clarion, Butler & Mercer Counties. A local contractor will follow up within 24 hours.</p>
     <div class="form-card">
-      <form action="https://formspree.io/f/mnjrlnyq" method="POST">
+      <form action="https://formspree.io/f/mnjrlnyq" method="POST" data-thank-you="/thank-you.html">
+        <input type="hidden" name="_next" value="https://nwpa-roofing-quotes.netlify.app/thank-you.html">
         <div class="form-grid">
           <div class="form-row"><label for="first_name">First Name</label><input type="text" id="first_name" name="first_name" autocomplete="given-name" placeholder="John" required></div>
           <div class="form-row"><label for="last_name">Last Name</label><input type="text" id="last_name" name="last_name" autocomplete="family-name" placeholder="Smith" required></div>
@@ -214,6 +230,7 @@
           <div class="form-row"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(724) 555-0100" required></div>
           <div class="form-row"><label for="zip_code">ZIP Code</label><input type="text" id="zip_code" name="zip_code" autocomplete="postal-code" inputmode="numeric" placeholder="16150" required></div>
         </div>
+        <div class="form-row"><label for="email">Email Address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required></div>
         <div class="form-row">
           <label for="project_type">Type of Project</label>
           <select id="project_type" name="project_type">
@@ -233,7 +250,7 @@
           <textarea id="details" name="details" placeholder="e.g. Metal roof preferred, have an insurance claim started, need estimate for permit..."></textarea>
         </div>
         <button class="submit-btn" type="submit">Request My Free Quote →</button>
-        <p class="form-note">Your info is never sold or shared. We only use it to connect you with a vetted local contractor.</p>
+        <p class="form-note">We use your information only to respond and connect you with a vetted local contractor. See our <a href="/privacy.html">Privacy Policy</a>.</p>
       </form>
     </div>
   </section>
@@ -361,8 +378,31 @@
 <footer>
   <p>Powered by <a href="https://tableturndigital.net">TableTurn Digital</a> &mdash; Helping NW Pennsylvania Businesses Grow Online</p>
   <p style="margin-top:8px;"><a href="tel:8142098304">📞 (814) 209-8304</a></p>
+  <p style="margin-top:8px;"><a href="/privacy.html">Privacy Policy</a></p>
   <p style="margin-top:8px;font-size:0.75rem;color:rgba(255,255,255,0.3);">© 2026 TableTurn Digital · Franklin, PA · Venango County</p>
 </footer>
+
+<div class="mobile-action" aria-label="Quick actions">
+  <a href="tel:8142098304">Call Now</a>
+  <a href="#get-quote">Free Quote</a>
+</div>
+<script>
+document.querySelectorAll('form[data-thank-you]').forEach(function (form) {
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const button = form.querySelector('[type="submit"]');
+    if (button) { button.disabled = true; button.textContent = 'Sending...'; }
+    try {
+      const response = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{ Accept:'application/json' } });
+      if (!response.ok) throw new Error('Submission failed');
+      window.location.assign(form.dataset.thankYou);
+    } catch (error) {
+      if (button) { button.disabled = false; button.textContent = 'Request My Free Quote →'; }
+      alert('We could not send your request. Please call (814) 209-8304 or try again.');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
